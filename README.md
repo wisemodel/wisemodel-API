@@ -1,4 +1,8 @@
-# API for Open LLMs
+# wisemodel-API
+
+Folk至[API for Open LLMs](https://github.com/xusenlinzy/api-for-open-llm)，并在此基础上更新完善，发布新模型到wisemodel社区时，大家可以抽空适配一下这套API。
+
+## 欢迎更多朋友们参与完善这套API，目前这套API主要支持语言模型，欢迎大家一起来尝试让这套API也能很好的支持多模态大模型！
 
 <p align="center">
     <a href="https://github.com/xusenlinzy/api-for-open-llm"><img src="https://img.shields.io/github/license/xusenlinzy/api-for-open-llm"></a>
@@ -14,8 +18,7 @@
 ![llm.png](assets/images/llm.png)
 <div align="center"> 图片来自于论文: [A Survey of Large Language Models](https://arxiv.org/pdf/2303.18223.pdf) </div>
 
-  
-## 🐧 QQ交流群：870207830
+
 
 
 ## 📢 新闻
