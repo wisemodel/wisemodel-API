@@ -206,7 +206,7 @@ class VllmEngine:
             )
         else:
             if getattr(self.tokenizer, "chat_template", None) and not self.prompt_name:
-                logger.debug("Using tokenizer's chat template")
+                logger.debug(f"Using tokenizer's chat template: {self.tokenizer.chat_template}")
                 prompt = self.tokenizer.apply_chat_template(
                     conversation=messages,
                     tokenize=False,

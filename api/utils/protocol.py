@@ -282,6 +282,11 @@ class CompletionCreateParams(BaseModel):
 
     [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
     """
+    response_format: Optional[ResponseFormat] = None
+    """An object specifying the format that the model must output.
+
+    Used to enable JSON mode.
+    """
 
     logit_bias: Optional[Dict[str, int]] = None
     """Modify the likelihood of specified tokens appearing in the completion.

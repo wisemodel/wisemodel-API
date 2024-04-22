@@ -16,7 +16,7 @@ docker build -f docker/Dockerfile.vllm -t llm-api:vllm .
 
 ```shell
 pip install torch==2.1.0
-pip install vllm==0.4.0
+pip install vllm==0.4.1
 pip install -r requirements.txt 
 pip uninstall transformer-engine -y
 ```
@@ -117,6 +117,7 @@ python server.py
 
 + [internlm](https://github.com/xusenlinzy/api-for-open-llm/blob/master/docs/VLLM_SCRIPT.md#internlm)      
 
++ [minicpm](https://github.com/sivdead/wisemodel-API/blob/main/docs/VLLM_SCRIPT.md#minicpm)
 
 ### Qwen-7b-chat
 
@@ -196,4 +197,14 @@ MODEL_NAME=internlm2
 MODEL_PATH=internlm/internlm2-chat-20b
 ENGINE=vllm
 TENSOR_PARALLEL_SIZE=2
+```
+
+### MiniCPM
+
+MiniCPM-2B-sft-bf16:
+
+```shell
+MODEL_NAME=minicpm
+MODEL_PATH=OpenBMB/MiniCPM-2B-dpo-bf16
+ENGINE=vllm
 ```

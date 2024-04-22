@@ -96,7 +96,8 @@ def create_vllm_engine():
         from vllm.engine.arg_utils import AsyncEngineArgs
         from vllm.engine.async_llm_engine import AsyncLLMEngine
         from api.core.vllm_engine import VllmEngine, LoRA
-    except ImportError:
+    except ImportError as e:
+        logger.error(f"Error loading vllm engine: {e}")
         return None
 
     include = {
