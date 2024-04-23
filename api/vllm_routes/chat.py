@@ -27,6 +27,7 @@ from sse_starlette import EventSourceResponse
 from vllm.outputs import RequestOutput
 from vllm.sampling_params import SamplingParams
 
+from api.config import SETTINGS
 from api.core.vllm_engine import VllmEngine
 from api.models import LLM_ENGINE
 from api.utils.compat import dictify, model_validate
@@ -106,8 +107,9 @@ async def create_chat_completion(
             from vllm.model_executor.guided_decoding import get_guided_decoding_logits_processor
             guided_decode_logits_processor = (
                 await get_guided_decoding_logits_processor(
-                    request,
-                    engine.tokenizer,
+                    guided_decoding_backend=SETTINGS.guided_decoding_backend,
+                    request=request,
+                    tokenizer=engine.tokenizer,
                 )
             )
             if guided_decode_logits_processor:

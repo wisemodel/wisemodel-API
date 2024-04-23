@@ -233,6 +233,11 @@ class VLLMSetting(BaseModel):
     vllm_disable_log_stats: Optional[bool] = Field(
         default=get_bool_env("VLLM_DISABLE_LOG_STATS", "true"),
     )
+    guided_decoding_backend: Optional[str] = Field(
+        default=get_env("GUIDED_DECODING_BACKEND", "outlines"),
+        description="Guided decoding backend. Choices are ['outlines', 'lm-format-enforcer']."
+    )
+
 
 
 class LlamaCppSetting(BaseModel):
