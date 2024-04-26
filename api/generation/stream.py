@@ -46,6 +46,14 @@ def generate_stream(
     stop_token_ids = params.get("stop_token_ids") or []
     if tokenizer.eos_token_id not in stop_token_ids:
         stop_token_ids.append(tokenizer.eos_token_id)
+    if stop_str:
+        if isinstance(stop_str, str):
+            stop_str = [stop_str]
+        elif not isinstance(stop_str, Iterable):
+            raise ValueError("Invalid stop field type.")
+        stop_token_ids.extend(tokenizer.convert_tokens_to_ids(stop_str))
+        # Remove duplicated stop tokens
+        stop_token_ids = list(set(stop_token_ids))
 
     logits_processor = prepare_logits_processor(
         temperature, repetition_penalty, top_p, top_k
