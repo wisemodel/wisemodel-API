@@ -19,4 +19,11 @@ RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fa
 RUN CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install llama-cpp-python
 
 WORKDIR /workspace/
+RUN mkdir /workspace/api
 ENV PYTHONPATH /workspace/
+COPY requirements.txt /workspace/
+COPY api /workspace/api
+
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
+    pip install --no-cache-dir -r /workspace/requirements.txt && \
+    pip install bitsandbytes --upgrade
