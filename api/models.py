@@ -108,7 +108,7 @@ def create_vllm_engine():
         "gpu_memory_utilization",
         "max_num_seqs",
         "enforce_eager",
-        "max_context_len_to_capture",
+        "max_seq_len_to_capture",
         "max_loras",
         "max_lora_rank",
         "lora_extra_vocab_size",
@@ -121,6 +121,7 @@ def create_vllm_engine():
         quantization=SETTINGS.quantization_method,
         max_cpu_loras=SETTINGS.max_cpu_loras if SETTINGS.max_cpu_loras > 0 else None,
         disable_log_stats=SETTINGS.vllm_disable_log_stats,
+        disable_log_requests=True,
         **kwargs,
     )
     engine = AsyncLLMEngine.from_engine_args(engine_args)

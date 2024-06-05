@@ -236,6 +236,8 @@ class ChatCompletionCreateParams(BaseModel):
 
     guided_grammar: Optional[str] = None
 
+    guided_decoding_backend: Optional[str] = None
+
 
 class CompletionCreateParams(BaseModel):
     model: str
@@ -409,6 +411,12 @@ class CompletionCreateParams(BaseModel):
     """Watermarking with [A Watermark for Large Language Models](https://arxiv.org / abs / 2301.10226)
     """
 
+    response_format: Optional[ResponseFormat] = None
+    """An object specifying the format that the model must output.
+
+    Used to enable JSON mode.
+    """
+
     ignore_eos: Optional[bool] = False
 
     use_beam_search: Optional[bool] = False
@@ -432,6 +440,8 @@ class CompletionCreateParams(BaseModel):
     guided_choice: Optional[List[str]] = None
 
     guided_grammar: Optional[str] = None
+
+    guided_decoding_backend: Optional[str] = None
 
 
 class EmbeddingCreateParams(BaseModel):
