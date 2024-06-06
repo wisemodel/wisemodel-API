@@ -206,7 +206,7 @@ async def create_chat_completion(
                     tool_calls=tool_calls,
                 )
             else:
-                message = ChatCompletionMessage(role="assistant", content=output.text)
+                message = ChatCompletionMessage(role="assistant", content=output.text.strip())
 
             choices.append(
                 Choice(
